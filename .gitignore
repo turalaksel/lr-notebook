@@ -6,4 +6,3 @@ packages/*/build
 packages/*/dist
 webpack/node_modules
 content/
-nb.lektorproject
