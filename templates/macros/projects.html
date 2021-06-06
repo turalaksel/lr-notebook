@@ -37,6 +37,13 @@
 </form>
 {% endmacro %}
 
+{% macro open_file(entry) %}
+<form target="frame" action="/admin/api/openfs" method="post">
+<input type="hidden" name="path" value="{{entry.path}}">
+<input type="image" src={{ '/static/images/bluelink.png'|url }}>
+</form>
+{% endmacro %} 
+
 {% macro render_attachments(entry, size=50) %}
 {% if entry.attachments %}
 <div class="row">
@@ -103,6 +110,10 @@
       {% else %}
       <small><a href="{{ entry|url }}">{{entry.date.strftime('%Y-%b-%d')}}</a></small>
       {% endif %}
+      <form target="frame" action="/admin/api/openfs" method="post">
+        <input type="hidden" name="path" value="{{entry.path}}">
+        <input type="image" src={{ '/static/images/bluelink.png'|url }}>
+      </form>
     </div>
     <div class="one column">
       <form style="display:inline;" target="frame" action="/admin/api/browsefs" method="post">
@@ -145,10 +156,14 @@
       <small>{{first_entry.date.strftime('%Y-%b-%d')}}</small>:
       {% if first_entry.description and first_entry.description != 'Untitled' %}
         <a href="{{ first_entry|url }}">{{ first_entry.description }}</a>
-        <a href="#" onclick="createEntry('{{first_entry.parent.path}}', document.querySelector('#date').value, '{{ first_entry.description }}' );">+</a>
+        <!-- <a href="#" onclick="createEntry('{{first_entry.parent.path}}', document.querySelector('#date').value, '{{ first_entry.description }}' );">+</a> -->
       {% else %}
         <a class="lightgray" href="{{ first_entry|url }}">Untitled</a>
       {%endif%}
+      <form target="frame" action="/admin/api/openfs" method="post">
+        <input type="hidden" name="path" value="{{first_entry.path}}">
+        <input type="image" src={{ '/static/images/bluelink.png'|url }}>
+      </form>
     </div>
     <div class="five columns">
       {% for entry in entrylist[::-1] %}
