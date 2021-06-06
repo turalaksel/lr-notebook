@@ -11,3 +11,6 @@
 # Live Demo
 
 A static deployment of a lr-notebook is available [here](http://sdouglas.github.io/lr-notebook/).
+
+# Open entry
+To open `contents.lr` using an editor, set the default program to open `*.lr` files using an editor of your choice. For Mac OS, [Mou](http://25.io/mou/) is recommended. 
