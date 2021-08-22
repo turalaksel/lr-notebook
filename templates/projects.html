@@ -22,7 +22,7 @@
 {% for item in this.children recursive %}
   {% if item._model != 'entry' %}
     <div class="row">
-      <div class="two columns">
+      <div class="three columns">
         {{browse_to(item)}}
         {% if item._model == 'project' %}
           {% set spanclass = 'orange' %}
